@@ -35,5 +35,3 @@ VALUES
 ('PBU-1689', 'Chevrolet', 'Tracker', 2023, 25000.00, 'Gris', TRUE);
 
 ALTER TABLE vehiculos ADD kilometraje int;
-
-ALTER USER postgres WITH PASSWORD 'yukiyasrael676*';
