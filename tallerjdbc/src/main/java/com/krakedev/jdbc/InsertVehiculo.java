@@ -14,8 +14,8 @@ public class InsertVehiculo {
 		Connection conn = null;
 		PreparedStatement pSQL;
 		String sql = """ 
-				INSERT INTO vehiculos(placa, marca, modelo, anio, precio, color, disponible)
-				VALUES(?,?,?,?,?,?,?);
+				INSERT INTO vehiculos(placa, marca, modelo, anio, precio, color, disponible, kilometraje)
+				VALUES(?,?,?,?,?,?,?,?);
 				""";
 		try {
 			conn = Conexion.getConnection();
@@ -27,6 +27,7 @@ public class InsertVehiculo {
 			pSQL.setDouble(5, 10500.00);
 			pSQL.setString(6, "Blanco");
 			pSQL.setBoolean(7, true);
+			pSQL.setInt(8, 24000);
 			int vehiculoIns = pSQL.executeUpdate();
 			
 			log.info("Vehículos insertados: " + vehiculoIns);

@@ -21,7 +21,7 @@ public class DeleteVehiculo {
 					DELETE FROM vehiculos WHERE placa = ?;
 					""";
 			pSQL = conn.prepareStatement(sql);
-			pSQL.setString(1, "PBA-1149");
+			pSQL.setString(1, "PBA-1049");
 			int vDelete = pSQL.executeUpdate();
 			
 			log.info("Vehículos eliminados: " + vDelete);

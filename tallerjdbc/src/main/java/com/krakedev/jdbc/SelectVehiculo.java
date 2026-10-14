@@ -33,9 +33,10 @@ public class SelectVehiculo {
 				double precio = rSet.getDouble("precio");
 				String color = rSet.getString("color");
 				boolean disponible = rSet.getBoolean("disponible");
+				int kilometraje = rSet.getInt("kilometraje");
 
 				log.info("Vehiculo: Placa: " + placa + " || Marca: " + marca + " || Modelo: " + modelo + " || Año: "
-						+ anio + " || Precio: " + precio + " || Color: " + color + " || Disponibilidad: " + disponible);
+						+ anio + " || Precio: " + precio + " || Color: " + color + " || Disponibilidad: " + disponible + " || Kilometraje: " + kilometraje);
 			}
 		} catch (Exception e) {
 			log.error("Error en los datos" + e.getMessage());
