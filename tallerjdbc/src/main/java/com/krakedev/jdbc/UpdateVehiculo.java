@@ -28,7 +28,7 @@ public class UpdateVehiculo {
 		pSQL.setDouble(4, 18500.00);
 		pSQL.setString(5, "gris");
 		pSQL.setBoolean(6, false);
-		pSQL.setString(7, "PBA-1023");
+		pSQL.setString(7, "PBA-1149");
 		
 		int vUpdate = pSQL.executeUpdate();
 		log.info("Vehículos actualizados: " + vUpdate);

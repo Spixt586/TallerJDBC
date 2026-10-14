@@ -1,7 +1,6 @@
 package com.krakedev.jdbc;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -9,10 +8,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class InsertVehiculo {
-	private static final Logger log = LogManager.getLogger(ConexionPostgres.class);
-	private static final String URL ="jdbc:postgresql://localhost:5432/postgres";
-	private static final String USER = "postgres";
-	private static final String PASSWORD = "Rex.lAVALL2045*";
+	private static final Logger log = LogManager.getLogger(InsertVehiculo.class);
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Connection conn = null;
@@ -22,9 +18,9 @@ public class InsertVehiculo {
 				VALUES(?,?,?,?,?,?,?);
 				""";
 		try {
-			conn = DriverManager.getConnection(URL,USER,PASSWORD);
+			conn = Conexion.getConnection();
 			pSQL = conn.prepareStatement(sql);
-			pSQL.setString(1, "PBA-1023");
+			pSQL.setString(1, "PBA-1149");
 			pSQL.setString(2, "TOYOTA");
 			pSQL.setString(3, "Corolla");
 			pSQL.setInt(4, 2022);
