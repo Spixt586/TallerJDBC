@@ -17,8 +17,16 @@ public class DeleteVehiculo {
 		
 		try {
 			conn = Conexion.getConnection();
-		}catch(Exception e) {
+			String sql = """
+					DELETE FROM vehiculos WHERE placa = ?;
+					""";
+			pSQL = conn.prepareStatement(sql);
+			pSQL.setString(1, "PBA-1149");
+			int vDelete = pSQL.executeUpdate();
 			
+			log.info("Vehículos eliminados: " + vDelete);
+		}catch(Exception e) {
+			log.error("Error al eliminar el Vehículo: " + e.getMessage());
 		}finally {
 			try {
 				conn.close();
