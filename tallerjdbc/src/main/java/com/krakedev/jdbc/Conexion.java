@@ -9,9 +9,9 @@ import org.apache.logging.log4j.Logger;
 
 public class Conexion {
 	private static final Logger log = LogManager.getLogger(Conexion.class);
-	private static final String URL ="jdbc:postgresql://localhost:5432/postgres";
-	private static final String USER = "postgres";
-	private static final String PASSWORD = "Rex.lAVALL2045*";
+	private static final String URL = System.getenv("DB_URL");
+	private static final String USER = System.getenv("DB_USER");
+	private static final String PASSWORD = System.getenv("DB_PASSWORD");
 	
 	public static Connection getConnection() {
 		try {

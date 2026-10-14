@@ -21,15 +21,20 @@ public class DeleteVehiculo {
 					DELETE FROM vehiculos WHERE placa = ?;
 					""";
 			pSQL = conn.prepareStatement(sql);
-			pSQL.setString(1, "PBA-1049");
+			pSQL.setString(1, "PBB-1149");
 			int vDelete = pSQL.executeUpdate();
 			
 			log.info("Vehículos eliminados: " + vDelete);
 		}catch(Exception e) {
 			log.error("Error al eliminar el Vehículo: " + e.getMessage());
-		}finally {
+		}finally {//Finally protegido para evitar NullPointerException
 			try {
-				conn.close();
+				if(pSQL != null) {
+					conn.close();
+				}
+				if(conn != null) {
+					conn.close();
+				}
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

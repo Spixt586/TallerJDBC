@@ -40,9 +40,17 @@ public class SelectVehiculo {
 			}
 		} catch (Exception e) {
 			log.error("Error en los datos" + e.getMessage());
-		} finally {
+		} finally {//Finally protegido para evitar NullPointerException
 			try {
-				conn.close();
+				if(pSQL != null) {
+					conn.close();	
+				}
+				if(rSet != null) {
+					conn.close();
+				}
+				if(conn != null) {
+					conn.close();
+				}
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

@@ -29,17 +29,22 @@ public class UpdateVehiculo {
 		pSQL.setString(5, "gris");
 		pSQL.setBoolean(6, false);
 		pSQL.setInt(7, 45000);
-		pSQL.setString(8, "PBA-1049");
+		pSQL.setString(8, "PBB-1149");
 		
 		int vUpdate = pSQL.executeUpdate();
 		log.info("Vehículos actualizados: " + vUpdate);
 		
 		
 		}catch(Exception e) {
-			log.error("Error al ctualizar: " + e.getMessage());
-		}finally {
+			log.error("Error al actualizar: " + e.getMessage());
+		}finally {//Finally protegido para evitar NullPointerException con if
 			try {
-				conn.close();
+				if(pSQL != null) {
+					conn.close();
+				}
+				if(conn != null) {
+					conn.close();
+				}
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
